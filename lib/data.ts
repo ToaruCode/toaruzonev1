@@ -2,34 +2,71 @@ import React from 'react'
 import { CgWorkAlt } from 'react-icons/cg'
 import { FaReact } from 'react-icons/fa'
 import { LuGraduationCap } from 'react-icons/lu'
-import corpcommentImg from '@/public/corpcomment.png'
-import rmtdevImg from '@/public/rmtdev.png'
-import wordanalyticsImg from '@/public/wordanalytics.png'
 
 export const links = [
   {
-    name: 'Home',
-    hash: '#home',
-  },
-  {
-    name: 'About',
-    hash: '#about',
-  },
-  {
-    name: 'Projects',
-    hash: '#projects',
-  },
-  {
-    name: 'Skills',
-    hash: '#skills',
-  },
-  {
-    name: 'Experience',
-    hash: '#experience',
-  },
-  {
-    name: 'Contact',
-    hash: '#contact',
+    menu: [
+      {
+        name: 'Home',
+        href: '/',
+      },
+      {
+        name: 'Portfolio',
+        href: '/portfolio',
+        hashs: [
+          {
+            name: 'Top',
+            hash: '#Top',
+          },
+          {
+            name: 'About',
+            hash: '#about',
+          },
+          {
+            name: 'Projects',
+            hash: '#projects',
+          },
+          {
+            name: 'Skills',
+            hash: '#skills',
+          },
+          {
+            name: 'Experience',
+            hash: '#experience',
+          },
+          {
+            name: 'Contact',
+            hash: '#contact',
+          },
+        ],
+      },
+      {
+        name: 'Blog',
+        href: '/blog',
+      },
+      {
+        name: 'Tools',
+        href: '/tools',
+        subLinks: [
+          {
+            name: 'Rednote',
+            href: '/tools/rednote',
+          },
+          {
+            name: 'Calendar',
+            href: '/tools/calendar',
+          },
+          {
+            name: 'Zsxqsniffer',
+            href: '/tools/zsxqsniffer',
+          },
+        ],
+      },
+      {
+        name: 'About',
+        href: '/about',
+      },
+    ],
   },
 ] as const
 
@@ -66,21 +103,21 @@ export const projectsData = [
     description:
       'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
     tags: ['React', 'Next.js', 'MongoDB', 'Tailwind', 'Prisma'],
-    imageUrl: corpcommentImg,
+    imageUrl: '',
   },
   {
     title: 'rmtDev',
     description:
       'Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.',
     tags: ['React', 'TypeScript', 'Next.js', 'Tailwind', 'Redux'],
-    imageUrl: rmtdevImg,
+    imageUrl: '',
   },
   {
     title: 'Word Analytics',
     description:
       'A public web app for quick analytics on text. It shows word count, character count and social media post limits.',
     tags: ['React', 'Next.js', 'SQL', 'Tailwind', 'Framer'],
-    imageUrl: wordanalyticsImg,
+    imageUrl: '',
   },
 ] as const
 
