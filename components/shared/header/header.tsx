@@ -14,6 +14,8 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import { links } from '@/lib/data'
 import { blue, grey } from '@mui/material/colors'
+import { ThemeProvider } from '@mui/system'
+import { createTheme } from '@mui/material/styles'
 
 const Header = () => {
   const [open, setOpen] = React.useState(false)
@@ -21,38 +23,34 @@ const Header = () => {
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen)
   }
-
+  const theme = createTheme()
   const DrawerList = (
-    <Box
-      sx={{
-        width: 250,
-        backgroundColor: blue[900],
-        color: grey[50],
-        height: '100%',
-      }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-    >
-      <List>
-        {links[0].menu.map((menuItem) => (
-          <ListItem
-            key={menuItem.name}
-            disablePadding
-            sx={{
-              fontWeight: 'bold',
-            }}
-          >
-            <ListItemButton component="a" href={menuItem.href}>
-              {/* <ListItemIcon>
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          width: 250,
+          backgroundColor: blue[900],
+          color: grey[50],
+          height: '100%',
+        }}
+        role="presentation"
+        onClick={toggleDrawer(false)}
+      >
+        <List>
+          {links[0].menu.map((menuItem) => (
+            <ListItem key={menuItem.name} disablePadding>
+              <ListItemButton component="a" href={menuItem.href}>
+                {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon> */}
-              <ListItemText primary={menuItem.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-    </Box>
+                <ListItemText primary={menuItem.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+      </Box>
+    </ThemeProvider>
   )
 
   return (
@@ -88,7 +86,13 @@ const Header = () => {
       </div>
 
       {/* Drawer */}
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <Drawer
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          fontWeight: 'bold',
+        }}
+      >
         {DrawerList}
       </Drawer>
     </nav>
